@@ -25,7 +25,7 @@ class Book:
 
     def borrow_book(self):
         if self.is_available():
-            self.status = 'unavaible'
+            self.status = 'unavailable'
             return True
         return False
     

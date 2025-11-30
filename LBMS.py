@@ -38,13 +38,16 @@ class LBMS:
         while(True): 
 
             try:
-                selection = int(input("Selection [1-20]: "))
+                selection = int(input("Selection [0-20]: "))
 
-                if(selection <= 0):
-                    print("Invalid Selection! Please type a positive number [1-20]")
+                if(selection == 0):
+                    break
+
+                if(selection < 0):
+                    print("Invalid Selection! Please type a valid umber [0-20]")
 
                 if(selection >= len(self.books)):
-                    print("Selection exceeded! Only type positive number [1-20]")
+                    print("Selection exceeded! Only type positive number [0-20]")
                    
                 print(f"You selected: {self.books[selection].get_title()} ({self.books[selection].get_yearPublished()}) by {self.books[selection].get_author()}")
                 confirmation = input("Confirm Selection? [Y/N]: ")
@@ -52,9 +55,12 @@ class LBMS:
                 if(confirmation == 'Y' or confirmation == 'y'): 
 
                     if(self.books[selection].borrow_book()):
-                        print(f"{self.books[selection].get_title()} succesffully borrowed!")
+                        print(f"{self.books[selection].get_title()} ({self.books[selection].get_yearPublished()}) by {self.books[selection].get_author()} succesffully borrowed!")
         
-                    print(f"{self.books[selection].get_title()} not available! Status is: {self.books[selection].get_status}")
+                    else:
+                        print(f"{self.books[selection].get_title()} not available! Status is: {self.books[selection].get_status()}")
+
+                    
                 
                 
             except ValueError:
@@ -71,6 +77,9 @@ class LBMS:
             [{key}] {book.get_title()} ({book.get_yearPublished()})
             """)
 
+            print(f"""\
+            [0] Exit
+            """)
 
 
     def main(self):
@@ -141,9 +150,7 @@ class LBMS:
                     print("Goodbye! Thanks for coming!")
                     break
 
-
-                
-                
+ 
             except:
                 print("Invalid Selection! Please try again")
 
