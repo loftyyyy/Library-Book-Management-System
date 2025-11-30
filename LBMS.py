@@ -105,11 +105,37 @@ class LBMS:
                 
             except ValueError:
                 print("Invalid Selection! Please try again")
-            
+
     
     def return_book(self): 
         self.get_borrowed_books()
         self.display_borrowed_books()
+
+        print(r"""
+        ==== Choose The Book To Return ==== """)
+        print()
+
+        while(True):
+            try:
+                selection = int(input(f"Selection [0-{len(self.borrowed_books)}]"))
+                
+                if(selection == 0):
+                    break
+
+                if(selection < 0):
+                    print(f"Invalid Selection! Please type a valid umber [0-{len(self.borrowed_books)}]")
+
+                if(selection >= len(self.books)):
+                    print(f"Selection exceeded! Only type positive number [0-{len(self.borrowed_books)}]")
+                
+                
+
+            except ValueError:
+                print("Invalid Selection! Please try again")
+
+                
+
+
 
 
     def main(self):
