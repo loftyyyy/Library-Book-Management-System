@@ -1,5 +1,5 @@
+import os
 from Book import Book
-import textwrap
 
 class LBMS:
     
@@ -27,6 +27,12 @@ class LBMS:
             20: Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 1997)
         }
 
+
+    def clear_screen(self):
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
                 
     def borrow_book(self):
         self.display_books()
@@ -124,6 +130,7 @@ class LBMS:
         print()
 
         while(True):
+  
             print(r"""
             [1] Borrow a Book
             [2] Return a Book
