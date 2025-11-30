@@ -28,6 +28,12 @@ class LBMS:
 
                 
     def borrow_book(self):
+        self.display_books()
+
+        print(r"""
+        ==== Choose Your Book ==== """)
+        print()
+
         while(True): 
 
             try:
@@ -97,11 +103,41 @@ class LBMS:
             /                  \|________)     /  / | |
         """)
 
+
         print(r"""
-        ==== Choose Your Book ==== """)
+        ==== Library Book Management System ==== """)
         print()
 
-        self.display_books()
+        while(True):
+            print(r"""
+            [1] Borrow a Book
+            [2] Return a Book
+            [0] Exit
+            """)
+
+            try:
+                selection = int(input("Selection [0-2]: "))
+
+                if(selection < 0):
+                    print("Invalid Selection! Please type a valid selection [0-2]")
+                    
+                if(selection > 2):
+                    print("Selection exceeded! Please type a valid selection [0-2]")
+                
+                if(selection == 0):
+                    print("Goodbye! Thanks for coming!")
+                    break
+
+            except ValueError:
+                print("Invalid Selection! Please try again")
+
+                
+
+
+
+        
+
+
 
 
     
