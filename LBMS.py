@@ -53,9 +53,9 @@ class LBMS:
             [{key}] {book.get_title()} ({book.get_yearPublished()})
             """)
 
-            print(f"""\
+        print(f"""\
             [0] Exit
-            """)
+        """)
 
 
     def get_borrowed_books(self):
@@ -99,6 +99,23 @@ class LBMS:
         
                     else:
                         print(f"{self.books[selection].get_title()} not available! Status is: {self.books[selection].get_status()}")
+    
+                else:
+                    print("Invalid Selection! Try again")
+                    break
+
+                try:
+                    
+                    again = input("Do you want to borrow another item? [Y/N]: ")
+
+                    if(again == 'Y' or again == 'y'): 
+                        self.borrow_book()
+                    else:
+                        print("Thanks for returning!")
+                        break
+                except ValueError:
+                    print("Invalid Selection! Try again")
+                    break
 
                     
                 
@@ -117,7 +134,7 @@ class LBMS:
 
         while(True):
             try:
-                selection = int(input(f"Selection [0-{len(self.borrowed_books)}]"))
+                selection = int(input(f"Selection [0-{len(self.borrowed_books)}]: "))
                 
                 if(selection == 0):
                     break
@@ -128,7 +145,28 @@ class LBMS:
                 if(selection >= len(self.books)):
                     print(f"Selection exceeded! Only type positive number [0-{len(self.borrowed_books)}]")
                 
+                print(f"You selected: {self.borrowed_books[selection].get_title()} ({self.borrowed_books[selection].get_yearPublished()}) by {self.borrowed_books[selection].get_author()}")
+                confirmation = input("Confirm Selection? [Y/N]: ")
+
+                if(confirmation == 'Y' or confirmation == 'y'): 
+
+                    if(self.borrowed_books[selection].return_book()):
+                        print(f"{self.borrowed_books[selection].get_title()} ({self.borrowed_books[selection].get_yearPublished()}) by {self.borrowed_books[selection].get_author()} succesffully returned!")
+        
+                    else:
+                        print(f"Cannot return {self.borrowed_books[selection].get_title()} since book was not borrowed!")
                 
+                else:
+                    print("Invalid Selection! Try again")
+                    break
+
+                again = input("Do you want to return another item? [Y/N]: ")
+
+                if(again == 'Y' or again == 'y'): 
+                    self.return_book()
+                else:
+                    print("Thanks for returning!")
+                    break
 
             except ValueError:
                 print("Invalid Selection! Please try again")
