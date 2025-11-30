@@ -4,6 +4,7 @@ from Book import Book
 class LBMS:
     
     def __init__(self):
+        self.borrowed_books = {}
         self.books = {
             1:  Book("To Kill a Mockingbird", "Harper Lee", 1960),
             2:  Book("1984", "George Orwell", 1949),
@@ -33,7 +34,40 @@ class LBMS:
             os.system('cls')
         else:
             os.system('clear')
+    
+    def display_books(self):
+        print()
+        for key, book in self.books.items():
+            print(f"""\
+            [{key}] {book.get_title()} ({book.get_yearPublished()})
+            """)
+
+            print(f"""\
+            [0] Exit
+            """)
+
+    def display_borrowed_books(self):
+        print()
+        for key, book in self.borrowed_books.items():
+            print(f"""\
+            [{key}] {book.get_title()} ({book.get_yearPublished()})
+            """)
+
+            print(f"""\
+            [0] Exit
+            """)
+
+
+    def get_borrowed_books(self):
+        count = 1
+        for key, book in self.books.items():
+            if(book.get_status() == 'unavailable'):
+                self.borrowed_books[count] = book
+                count += 1
                 
+
+            
+        
     def borrow_book(self):
         self.display_books()
 
@@ -74,18 +108,8 @@ class LBMS:
             
     
     def return_book(self): 
-        print("Hello")
-
-    def display_books(self):
-        print()
-        for key, book in self.books.items():
-            print(f"""\
-            [{key}] {book.get_title()} ({book.get_yearPublished()})
-            """)
-
-            print(f"""\
-            [0] Exit
-            """)
+        self.get_borrowed_books()
+        self.display_borrowed_books()
 
 
     def main(self):
