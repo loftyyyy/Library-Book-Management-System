@@ -42,9 +42,9 @@ class LBMS:
             [{key}] {book.get_title()} ({book.get_yearPublished()})
             """)
 
-            print(f"""\
-            [0] Exit
-            """)
+        print(f"""\
+        [0] Exit
+        """)
 
     def display_borrowed_books(self):
         print()
@@ -100,6 +100,10 @@ class LBMS:
                     else:
                         print(f"{self.books[selection].get_title()} not available! Status is: {self.books[selection].get_status()}")
     
+                elif(confirmation == 'N' or confirmation == 'n'):
+                    print("Returning to main menu....")
+                    break
+
                 else:
                     print("Invalid Selection! Try again")
                     break
@@ -157,7 +161,8 @@ class LBMS:
                     else:
                         print(f"Cannot return {self.borrowed_books[selection].get_title()} since book was not borrowed!")
                 
-                elif confirmation == 'N' or confirmation == 'n':
+                elif(confirmation == 'N' or confirmation == 'n'):
+                    print("Returning to main menu....")
                     break
 
                 else:
@@ -218,8 +223,7 @@ class LBMS:
         ==== Library Book Management System ==== """)
         print()
 
-        while(True):
-  
+        while(True): 
             print(r"""
             [1] Borrow a Book
             [2] Return a Book
