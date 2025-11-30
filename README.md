@@ -74,29 +74,80 @@ Manages the library system:
 3. Follow prompts to borrow or return books.
 4. The system shows the current list of books and their availability before performing any action.
 
+
+
+
+---
+
+# Example Output
+
+##Main Menu
+![Main Menu](images/Main%20Menu.png)
+
+##Return Menu
+![Return Menu](images/Return%20Menu.png)
+
+##Borrow Menu
+![Borrow Menu](images/Borrow%20Menu.png)
+
+
+
 ---
 
 ## Example Interaction
 
 ```
-==== LIBRARY MANAGEMENT SYSTEM ====
 
-[1] Borrow a Book
-[2] Return a Book
-[0] Exit
+        ==== LIBRARY MANAGEMENT SYSTEM by Rho Alphonce ====""")
+        ____________________________________________________
+        |____________________________________________________|
+        | __     __   ____   ___ ||  ____    ____     _  __  |
+        ||  |__ |--|_| || |_|   |||_|**|*|__|+|+||___| ||  | |
+        ||==|^^||--| |=||=| |=*=||| |~~|~|  |=|=|| | |~||==| |
+        ||  |##||  | | || | |RAJ|||-|  | |==|+|+||-|-|~||__| |
+        ||__|__||__|_|_||_|_|___|||_|__|_|__|_|_||_|_|_||__|_|
+        ||_______________________||__________________________|
+        | _____________________  ||      __   __  _  __    _ |
+        ||=|=|=|=|=|=|=|=|=|=|=| __..\/ |  |_|  ||#||==|  / /|
+        || | | | | | | | | | | |/\ \  \\|++|=|  || ||==| / / |
+        ||_|_|_|_|_|_|_|_|_|_|_/_/\_.___\__|_|__||_||__|/_/__|
+        |____________________ /\~()/()~//\ __________________|
+        | __   __    _  _     \_  (_ .  _/ _    ___     _____|
+        ||~~|_|..|__| || |_ _   \ //\\ /  |=|__|~|~|___| | | |
+        ||--|+|^^|==|1||2| | |__/\ __ /\__| |==|x|x|+|+|=|=|=|
+        ||__|_|__|__|_||_|_| /  \ \  / /  \_|__|_|_|_|_|_|_|_|
+        |_________________ _/    \/\/\/    \_ _______________|
+        | _____   _   __  |/      \../      \|  __   __   ___|
+        ||_____|_| |_|##|_||   |   \/ __|   ||_|==|_|++|_|-|||
+        ||______||=|#|--| |\   \   o    /   /| |  |~|  | | |||
+        ||______||_|_|__|_|_\   \  o   /   /_|_|__|_|__|_|_|||
+        |_________ __________\___\____/___/___________ ______|
+        |__    _  /    ________     ______           /| _ _ _|
+        |\ \  |=|/   //    /| //   /  /  / |        / ||%|%|%|
+        | \/\ |*/  .//____//.//   /__/__/ (_)      /  ||=|=|=|
+        __|  \/\|/   /(____|/ //                    /  /||~|~|~|__
+        |___\_/   /________//   ________         /  / ||_|_|_|
+        |___ /   (|________/   |\_______\       /  /| |______|
+            /                  \|________)     /  / | |
 
-Selection [0-2]: 1
+            ==== LIBRARY MANAGEMENT SYSTEM ====
 
-==== Choose Your Book ====
-[1] To Kill a Mockingbird (1960)
-[2] 1984 (1949)
-...
-[0] Exit
+            [1] Borrow a Book
+            [2] Return a Book
+            [0] Exit
 
-Selection [0-20]: 1
-You selected: To Kill a Mockingbird (1960) by Harper Lee
-Confirm Selection? [Y/N]: Y
-To Kill a Mockingbird successfully borrowed!
+            Selection [0-2]: 1
+
+            ==== Choose Your Book ====
+            [1] To Kill a Mockingbird (1960)
+            [2] 1984 (1949)
+            ...
+            [0] Exit
+
+            Selection [0-20]: 1
+            You selected: To Kill a Mockingbird (1960) by Harper Lee
+            Confirm Selection? [Y/N]: Y
+            To Kill a Mockingbird successfully borrowed!
 ```
 
 ---
