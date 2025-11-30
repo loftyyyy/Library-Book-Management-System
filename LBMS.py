@@ -79,7 +79,21 @@ class LBMS:
 
         while(True): 
             self.display_books()
+
+            try:
+                selection = int(input("Selection [1-20]: "))
+
+                if(selection < 0):
+                    print("Invalid Selection. Please type a positive number [1-10]")
+                    
+
+                    
+
+                
+            except:
+                print("Invalid Selection")
             
+
     
 if __name__ == "__main__":
     lbms = LBMS()
