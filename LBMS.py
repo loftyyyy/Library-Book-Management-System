@@ -65,7 +65,8 @@ class LBMS:
 
 
     #Populates the borrowed_books dictionary based on book status. Only books marked as 'unavailable' are considered borrowed.
-    def get_borrowed_books(self):
+    def update_borrowed_books(self):
+        self.borrowed_books.clear()
         count = 1
         for key, book in self.books.items():
             if(book.get_status() == 'unavailable'):
@@ -76,7 +77,7 @@ class LBMS:
             
         
     # Allows the user to borrow a book from the library. Updates the book's status to 'unavailable'.
-    def borrow_book(self):
+    def _borrow_book(self):
         self.display_books()
 
         print(r"""
@@ -121,7 +122,7 @@ class LBMS:
                     again = input("Do you want to borrow another item? [Y/N]: ")
 
                     if(again == 'Y' or again == 'y'): 
-                        self.borrow_book()
+                        self._borrow_book()
                     else:
                         print("Thanks for borrowing!")
                         break
@@ -135,56 +136,49 @@ class LBMS:
 
 
     #Allows the user to return a borrowed book. Updates the book's status to 'available'.
-    def return_book(self): 
-        self.get_borrowed_books()
-        self.display_borrowed_books()
+    def _return_book(self):
+        while True:
+            self.update_borrowed_books()
+            if not self.borrowed_books:
+                print("No books currently borrowed.")
+                break
 
-        print(r"""
-        ==== Choose a Book To Return ==== """)
-        print()
+            self.display_borrowed_books()
+            print("\n==== Choose a Book To Return ====\n")
 
-        while(True):
             try:
                 selection = int(input(f"Selection [0-{len(self.borrowed_books)}]: "))
-                
-                if(selection == 0):
+
+                if selection == 0:
                     break
 
-                if(selection < 0):
-                    print(f"Invalid Selection! Please type a valid umber [0-{len(self.borrowed_books)}]")
+                if selection not in self.borrowed_books:
+                    print(f"Invalid Selection! Please choose a valid number [1-{len(self.borrowed_books)}]")
+                    continue
 
-                if(selection >= len(self.books)):
-                    print(f"Selection exceeded! Only type positive number [0-{len(self.borrowed_books)}]")
-                
-                print(f"You selected: {self.borrowed_books[selection].get_title()} ({self.borrowed_books[selection].get_yearPublished()}) by {self.borrowed_books[selection].get_author()}")
-                confirmation = input("Confirm Selection? [Y/N]: ")
+                book = self.borrowed_books[selection]
+                print(f"You selected: {book.get_title()} ({book.get_yearPublished()}) by {book.get_author()}")
+                confirmation = input("Confirm Selection? [Y/N]: ").lower()
 
-                if(confirmation == 'Y' or confirmation == 'y'): 
-
-                    if(self.borrowed_books[selection].return_book()):
-                        print(f"{self.borrowed_books[selection].get_title()} ({self.borrowed_books[selection].get_yearPublished()}) by {self.borrowed_books[selection].get_author()} succesffully returned!")
-        
+                if confirmation == 'y':
+                    if book.return_book():
+                        print(f"{book.get_title()} ({book.get_yearPublished()}) by {book.get_author()} successfully returned!")
                     else:
-                        print(f"Cannot return {self.borrowed_books[selection].get_title()} since book was not borrowed!")
-                
-                elif(confirmation == 'N' or confirmation == 'n'):
-                    print("Returning to main menu....")
+                        print(f"Cannot return {book.get_title()}; it was not borrowed.")
+                elif confirmation == 'n':
+                    print("Returning to main menu...")
+                    break
+                else:
+                    print("Invalid input! Returning to main menu...")
                     break
 
-                else:
-                    print("Invalid Selection! Try again")
-                    break
-
-                again = input("Do you want to return another item? [Y/N]: ")
-
-                if(again == 'Y' or again == 'y'): 
-                    self.return_book()
-                else:
+                again = input("Do you want to return another book? [Y/N]: ").lower()
+                if again != 'y':
                     print("Thanks for returning!")
                     break
 
             except ValueError:
-                print("Invalid Selection! Please try again")
+                print("Invalid input! Please enter a number.")
 
                 
     # Main menu loop for the Library Book Management System. Handles borrowing, returning, and exiting the program.
@@ -247,10 +241,10 @@ class LBMS:
                 
                 
                 if(selection == 1):
-                    self.borrow_book()
+                    self._borrow_book()
                 
                 if(selection == 2):
-                    self.return_book()
+                    self._return_book()
 
                 if(selection == 0):
                     print("Goodbye! Thanks for coming!")
