@@ -81,13 +81,10 @@ Manages the library system:
 
 # Example Output
 
-##Main Menu
 ![Main Menu](images/Main%20Menu.png)
 
-##Return Menu
 ![Return Menu](images/Return%20Menu.png)
 
-##Borrow Menu
 ![Borrow Menu](images/Borrow%20Menu.png)
 
 
