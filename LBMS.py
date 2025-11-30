@@ -89,7 +89,7 @@ class LBMS:
                 if(selection >= len(self.books)):
                     print("Selection exceeded! Only type positive number [0-20]")
                    
-                print(f"You selected: {self.books[selection].get_title()} ({self.books[selection].get_yearPublished()}) by {self.books[selection].get_author()}")
+                print(f"You selected: {self.books[selection].display_info()}")
                 confirmation = input("Confirm Selection? [Y/N]: ")
 
                 if(confirmation == 'Y' or confirmation == 'y'): 
