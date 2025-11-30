@@ -121,9 +121,6 @@ class LBMS:
                 except ValueError:
                     print("Invalid Selection! Try again")
                     break
-
-                    
-                
                 
             except ValueError:
                 print("Invalid Selection! Please try again")
@@ -134,7 +131,7 @@ class LBMS:
         self.display_borrowed_books()
 
         print(r"""
-        ==== Choose The Book To Return ==== """)
+        ==== Choose a Book To Return ==== """)
         print()
 
         while(True):
