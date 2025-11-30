@@ -2,9 +2,18 @@ import os
 from Book import Book
 
 class LBMS:
+
+    """
+    Library Book Management System (LBMS)
+    Manages book records, borrowing, and returning for a small library.
+    By Rho Alphonce E. Jornadal
+    """
     
     def __init__(self):
+        # Initializing borrowed books as empty
         self.borrowed_books = {}
+
+        # Initializing 20 Books 
         self.books = {
             1:  Book("To Kill a Mockingbird", "Harper Lee", 1960),
             2:  Book("1984", "George Orwell", 1949),
@@ -28,13 +37,9 @@ class LBMS:
             20: Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 1997)
         }
 
+ 
+    # Displays all books in the library with their ID and year published.
 
-    def clear_screen(self):
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
-    
     def display_books(self):
         print()
         for key, book in self.books.items():
@@ -46,6 +51,7 @@ class LBMS:
         [0] Exit
         """)
 
+    # Display all currently borrwed books
     def display_borrowed_books(self):
         print()
         for key, book in self.borrowed_books.items():
@@ -58,6 +64,7 @@ class LBMS:
         """)
 
 
+    #Populates the borrowed_books dictionary based on book status. Only books marked as 'unavailable' are considered borrowed.
     def get_borrowed_books(self):
         count = 1
         for key, book in self.books.items():
@@ -68,6 +75,7 @@ class LBMS:
 
             
         
+    # Allows the user to borrow a book from the library. Updates the book's status to 'unavailable'.
     def borrow_book(self):
         self.display_books()
 
@@ -125,7 +133,8 @@ class LBMS:
             except ValueError:
                 print("Invalid Selection! Please try again")
 
-    
+
+    #Allows the user to return a borrowed book. Updates the book's status to 'available'.
     def return_book(self): 
         self.get_borrowed_books()
         self.display_borrowed_books()
@@ -178,7 +187,7 @@ class LBMS:
                 print("Invalid Selection! Please try again")
 
                 
-
+    # Main menu loop for the Library Book Management System. Handles borrowing, returning, and exiting the program.
     def main(self):
         print(r"""
         ==== LIBRARY MANAGEMENT SYSTEM by Rho Alphonce ====""")
