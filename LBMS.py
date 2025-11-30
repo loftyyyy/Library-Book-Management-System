@@ -1,4 +1,5 @@
 from Book import Book
+import textwrap
 
 class LBMS:
     
@@ -64,8 +65,13 @@ class LBMS:
         print("Hello")
 
     def display_books(self):
+        print()
         for key, book in self.books.items():
-            print(f"[{key}] {book.get_title()} ({book.get_yearPublished()})")
+            print(f"""\
+            [{key}] {book.get_title()} ({book.get_yearPublished()})
+            """)
+
+
 
     def main(self):
         print(r"""
@@ -124,11 +130,21 @@ class LBMS:
                 if(selection > 2):
                     print("Selection exceeded! Please type a valid selection [0-2]")
                 
+                
+                if(selection == 1):
+                    self.borrow_book()
+                
+                if(selection == 2):
+                    self.return_book()
+
                 if(selection == 0):
                     print("Goodbye! Thanks for coming!")
                     break
 
-            except ValueError:
+
+                
+                
+            except:
                 print("Invalid Selection! Please try again")
 
                 
