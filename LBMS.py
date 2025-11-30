@@ -165,9 +165,11 @@ class LBMS:
                         print(f"{book.get_title()} ({book.get_yearPublished()}) by {book.get_author()} successfully returned!")
                     else:
                         print(f"Cannot return {book.get_title()}; it was not borrowed.")
+
                 elif confirmation == 'n':
                     print("Returning to main menu...")
                     break
+
                 else:
                     print("Invalid input! Returning to main menu...")
                     break
