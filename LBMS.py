@@ -26,5 +26,9 @@ class LBMS:
                     Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 1997)
                     ]
                 
-
+    def borrow_book(self):
     
+    def return_book(self):
+    
+    def   
+

@@ -5,7 +5,7 @@ class Book:
         self.year_published = year_published
         self.status = status
 
-    def get_summary(self):
+    def display_info(self):
         return f"'{self.title}' by {self.author}, published in {self.year_published}. Status: {self.status}."
 
     def get_title(self):
@@ -23,11 +23,15 @@ class Book:
     def is_available(self):
         return self.status == 'available'
 
-    def borrow(self):
+    def borrow_boo(self):
         if self.is_available():
-            self.status = 'borrowed'
+            self.status = 'unavaible'
             return True
         return False
     
-    def returned(self):
+    def return_book(self):
+        if not self.is_available():
+            self.status = 'available'
+            return True
+        return False
         
