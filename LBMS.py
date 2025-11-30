@@ -28,7 +28,31 @@ class LBMS:
 
                 
     def borrow_book(self):
-        print("Hello")
+        while(True): 
+
+            try:
+                selection = int(input("Selection [1-20]: "))
+
+                if(selection <= 0):
+                    print("Invalid Selection! Please type a positive number [1-20]")
+
+                if(selection >= len(self.books)):
+                    print("Selection exceeded! Only type positive number [1-20]")
+                   
+                print(f"You selected: {self.books[selection].get_title()} ({self.books[selection].get_yearPublished()}) by {self.books[selection].get_author()}")
+                confirmation = input("Confirm Selection? [Y/N]: ")
+
+                if(confirmation == 'Y' or confirmation == 'y'): 
+
+                    if(self.books[selection].borrow_book()):
+                        print(f"{self.books[selection].get_title()} succesffully borrowed!")
+        
+                    print(f"{self.books[selection].get_title()} not available! Status is: {self.books[selection].get_status}")
+                
+                
+            except ValueError:
+                print("Invalid Selection! Please try again")
+            
     
     def return_book(self): 
         print("Hello")
@@ -79,26 +103,6 @@ class LBMS:
 
         self.display_books()
 
-        while(True): 
-
-            try:
-                selection = int(input("Selection [1-20]: "))
-
-                if(selection <= 0):
-                    print("Invalid Selection! Please type a positive number [1-20]")
-
-                if(selection >= len(self.books)):
-                    print("Selection exceeded! Only type positive number [1-20]")
-                   
-                
-
-
-                    
-
-                
-            except:
-                print("Invalid Selection")
-            
 
     
 if __name__ == "__main__":

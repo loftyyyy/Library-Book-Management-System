@@ -23,7 +23,7 @@ class Book:
     def is_available(self):
         return self.status == 'available'
 
-    def borrow_boo(self):
+    def borrow_book(self):
         if self.is_available():
             self.status = 'unavaible'
             return True
