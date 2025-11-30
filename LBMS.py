@@ -111,8 +111,9 @@ class LBMS:
                     if(again == 'Y' or again == 'y'): 
                         self.borrow_book()
                     else:
-                        print("Thanks for returning!")
+                        print("Thanks for borrowing!")
                         break
+                    
                 except ValueError:
                     print("Invalid Selection! Try again")
                     break
@@ -156,6 +157,9 @@ class LBMS:
                     else:
                         print(f"Cannot return {self.borrowed_books[selection].get_title()} since book was not borrowed!")
                 
+                elif confirmation == 'N' or confirmation == 'n':
+                    break
+
                 else:
                     print("Invalid Selection! Try again")
                     break
@@ -172,9 +176,6 @@ class LBMS:
                 print("Invalid Selection! Please try again")
 
                 
-
-
-
 
     def main(self):
         print(r"""
