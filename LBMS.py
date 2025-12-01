@@ -188,6 +188,16 @@ class LBMS:
             book_author = input("Book Author: ")
             publication_year = input ("Publication Year: ")
 
+            confirmation = input(f"You wish to add: {book_title} ({publication_year}) by {book_author}. Confirm? [Y/N]: ")
+            if(confirmation == "Y" or confirmation == "y"):
+                self.books[len(self.books) + 1] = Book(book_title, book_author, publication_year)
+            else:
+                print("Goodbye!")
+
+            again = input("Do you want to add another book? [Y/N]: ")
+            
+            if(again == "Y" or again == "y"):
+                self._add_book()
             
 
         except:
@@ -237,9 +247,10 @@ class LBMS:
 
         while(True): 
             print(r"""
-            [1] Borrow a Book
-            [2] Return a Book
-            [3] Add a Book
+            [1] Add a Book
+            [2] Show Books
+            [3] Borrow a Book
+            [4] Return a Book
             [0] Exit
             """)
 
@@ -254,12 +265,16 @@ class LBMS:
                 
                 
                 if(selection == 1):
-                    self._borrow_book()
+                    self._add_book()
                 
                 if(selection == 2):
-                    self._return_book()
+                    self._show_books()
                 
                 if(selection == 3):
+                    self._borrow_book
+                
+                if(selection == 4):
+                    self._return_book
                     
                 if(selection == 0):
                     print("Goodbye! Thanks for coming!")
