@@ -182,7 +182,14 @@ class LBMS:
             except ValueError:
                 print("Invalid input! Please enter a number.")
 
-                
+    def _add_book(self):
+        try:
+            book_title = input("Book Title: ")
+            book_author = input("Book Author: ")
+            publication_year = input ("Publication Year: ")
+            
+        except:
+
     # Main menu loop for the Library Book Management System. Handles borrowing, returning, and exiting the program.
     def main(self):
         print(r"""
@@ -248,7 +255,9 @@ class LBMS:
                 
                 if(selection == 2):
                     self._return_book()
-
+                
+                if(selection == 3):
+                    
                 if(selection == 0):
                     print("Goodbye! Thanks for coming!")
                     break
