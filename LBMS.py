@@ -229,6 +229,7 @@ class LBMS:
             print(r"""
             [1] Borrow a Book
             [2] Return a Book
+            [3] Add a Book
             [0] Exit
             """)
 
