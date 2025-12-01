@@ -187,8 +187,11 @@ class LBMS:
             book_title = input("Book Title: ")
             book_author = input("Book Author: ")
             publication_year = input ("Publication Year: ")
+
             
+
         except:
+            print("Something went wrong. Please try again")
 
     # Main menu loop for the Library Book Management System. Handles borrowing, returning, and exiting the program.
     def main(self):
