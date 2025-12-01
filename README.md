@@ -67,9 +67,11 @@ Manages the library system:
 2. Select an option from the main menu:
 
    ```
-   [1] Borrow a Book
-   [2] Return a Book
-   [0] Exit
+  [1] Add a Book
+  [2] Show Books
+  [3] Borrow a Book
+  [4] Return a Book
+  [0] Exit
    ```
 3. Follow prompts to borrow or return books.
 4. The system shows the current list of books and their availability before performing any action.
@@ -83,9 +85,14 @@ Manages the library system:
 
 ![Main Menu](images/Main%20Menu.png)
 
-![Return Menu](images/Return%20Menu.png)
+![Add Book](images/Add%20a%20book.png)
+
+![Show books](images/show%20books.png)
 
 ![Borrow Menu](images/Borrow%20Menu.png)
+
+![Return Menu](images/Return%20Menu.png)
+
 
 
 

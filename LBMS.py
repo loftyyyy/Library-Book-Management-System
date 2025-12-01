@@ -44,7 +44,7 @@ class LBMS:
         print()
         for key, book in self.books.items():
             print(f"""\
-            [{key}] {book.get_title()} ({book.get_yearPublished()} by {book.get_author})
+            [{key}] {book.get_title()} ({book.get_yearPublished()}) by {book.get_author()}
             """)
 
         print(f"""\
@@ -87,16 +87,16 @@ class LBMS:
         while(True): 
 
             try:
-                selection = int(input("Selection [0-20]: "))
+                selection = int(input(f"Selection [0-{len(self.books)}]: "))
 
                 if(selection == 0):
                     break
 
                 if(selection < 0):
-                    print("Invalid Selection! Please type a valid umber [0-20]")
+                    print(f"Invalid Selection! Please type a valid number [0-{len(self.books)}]")
 
-                if(selection >= len(self.books)):
-                    print("Selection exceeded! Only type positive number [0-20]")
+                if(selection > len(self.books)):
+                    print(f"Selection exceeded! Only type positive number [0-{len(self.books)}]")
                    
                 print(f"You selected: {self.books[selection].display_info()}")
                 confirmation = input("Confirm Selection? [Y/N]: ")
@@ -191,6 +191,7 @@ class LBMS:
             confirmation = input(f"You wish to add: {book_title} ({publication_year}) by {book_author}. Confirm? [Y/N]: ")
             if(confirmation == "Y" or confirmation == "y"):
                 self.books[len(self.books) + 1] = Book(book_title, book_author, publication_year)
+                print(f"Succesffully added {book_title} ({publication_year}) by {book_author} ")
             else:
                 print("Goodbye!")
 
@@ -258,13 +259,13 @@ class LBMS:
             """)
 
             try:
-                selection = int(input("Selection [0-2]: "))
+                selection = int(input("Selection [0-4]: "))
 
                 if(selection < 0):
-                    print("Invalid Selection! Please type a valid selection [0-2]")
+                    print("Invalid Selection! Please type a valid selection [0-4]")
                     
-                if(selection > 2):
-                    print("Selection exceeded! Please type a valid selection [0-2]")
+                if(selection > 4):
+                    print("Selection exceeded! Please type a valid selection [0-4]")
                 
                 
                 if(selection == 1):
@@ -274,10 +275,10 @@ class LBMS:
                     self._show_books()
                 
                 if(selection == 3):
-                    self._borrow_book
+                    self._borrow_book()
                 
                 if(selection == 4):
-                    self._return_book
+                    self._return_book()
                     
                 if(selection == 0):
                     print("Goodbye! Thanks for coming!")
