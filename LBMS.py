@@ -44,7 +44,7 @@ class LBMS:
         print()
         for key, book in self.books.items():
             print(f"""\
-            [{key}] {book.get_title()} ({book.get_yearPublished()})
+            [{key}] {book.get_title()} ({book.get_yearPublished()} by {book.get_author})
             """)
 
         print(f"""\
@@ -202,6 +202,9 @@ class LBMS:
 
         except:
             print("Something went wrong. Please try again")
+
+    def _show_books(self):
+        self.display_books()
 
     # Main menu loop for the Library Book Management System. Handles borrowing, returning, and exiting the program.
     def main(self):
